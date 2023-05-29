@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:news_app_flutter/widgets/widgets.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -12,12 +11,17 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: Text(
-          "SeachPage",
-          style: TextStyle(color: Colors.black, fontSize: 50),
+    return Padding(
+      padding: const EdgeInsets.all(15.0),
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        appBar: MyWidgets().MyAppBar(),
+        backgroundColor: Colors.white,
+        body: const Center(
+          child: Text(
+            "SearchPage",
+            style: TextStyle(color: Colors.black, fontSize: 50),
+          ),
         ),
       ),
     );
