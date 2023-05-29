@@ -44,7 +44,15 @@ class _TabbarState extends State<Tabbar> {
                   this._selectedTab = index;
                 });
               },
+              color: Colors.white,
+              rippleColor: Colors.white,
+              hoverColor: Colors.white,
+              tabBorder: Border.all(color: Colors.white, width: 1),
+              tabShadow: [
+                BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 8)
+              ],
               selectedIndex: _selectedTab,
+              tabBackgroundColor: Colors.white,
               tabActiveBorder: Border.all(color: Colors.black, width: 1),
               padding: const EdgeInsets.all(16),
               backgroundColor: Colors.white,

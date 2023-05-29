@@ -13,9 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       darkTheme: ThemeData(
-        brightness: Brightness.dark,
+        brightness: Brightness.light,
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           landscapeLayout: BottomNavigationBarLandscapeLayout.centered,
           backgroundColor: Colors.white,
