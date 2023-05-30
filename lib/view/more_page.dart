@@ -46,6 +46,7 @@ class _MorePageState extends State<MorePage> {
                     shape: Border.all(color: Colors.black, width: 1),
                     leading: Image.network(
                       widget.list![index].urlToImage.toString(),
+                      fit: BoxFit.cover,
                       width: 100,
                       height: 100,
                     ),
@@ -53,11 +54,15 @@ class _MorePageState extends State<MorePage> {
                       widget.list![index].title.toString(),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          color: Colors.black, fontFamily: "AppFontBold"),
                     ),
                     subtitle: Text(
                       widget.list![index].description.toString(),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
+                      style:
+                          TextStyle(color: Colors.grey, fontFamily: "AppFont"),
                     ),
                   ),
                 ),

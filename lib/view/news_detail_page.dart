@@ -18,97 +18,94 @@ class _DetailPageState extends State<DetailPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
-        slivers: [
-          toolbarToCollapse(context),
-          pageContent()
-        ],
+        slivers: [toolbarToCollapse(context), pageContent()],
       ),
     );
   }
 
   SliverAppBar toolbarToCollapse(BuildContext context) {
     return SliverAppBar(
-          pinned: true,
-          expandedHeight: MediaQuery.of(context).size.height / 2,
-          flexibleSpace: SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height / 2,
-            child: FlexibleSpaceBar(
-              background: Stack(
-                fit: StackFit.expand,
-                children: [
-                  ClipRRect(
-                    child: FlexibleSpaceBar(
-                      background: Image.network(
-                        widget.newsList![widget.i].urlToImage.toString(),
-                        fit: BoxFit.cover,
+      pinned: true,
+      expandedHeight: MediaQuery.of(context).size.height / 2,
+      flexibleSpace: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height / 2,
+        child: FlexibleSpaceBar(
+          background: Stack(
+            fit: StackFit.expand,
+            children: [
+              ClipRRect(
+                child: FlexibleSpaceBar(
+                  background: Image.network(
+                    widget.newsList![widget.i].urlToImage.toString(),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              ClipRRect(
+                child: ColoredBox(color: Colors.black.withOpacity(0.5)),
+              ),
+              Padding(
+                padding: EdgeInsets.all(20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: SizedBox(
+                          width: 150,
+                          height: 40,
+                          child: MyWidgets().glassMorphismText(widget
+                              .newsList![widget.i].source!.name
+                              .toString()),
+                        ),
                       ),
                     ),
-                  ),
-                  ClipRRect(
-                    child: ColoredBox(color: Colors.black.withOpacity(0.5)),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Align(
-                          alignment: Alignment.bottomLeft,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: SizedBox(
-                              width: 150,
-                              height: 40,
-                              child: MyWidgets().glassMorphismText(widget
-                                  .newsList![widget.i].source!.name
-                                  .toString()),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Center(
-                          child: Text(
-                            widget.newsList![widget.i].title.toString(),
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontFamily: "AppFont",
-                                fontSize: 25),
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: Text(
-                            widget.newsList![widget.i].description.toString(),
-                            style: TextStyle(
-                                color: Colors.grey, fontFamily: "AppFont"),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 35,
-                        )
-                      ],
+                    const SizedBox(
+                      height: 20,
                     ),
-                  ),
-                ],
+                    Center(
+                      child: Text(
+                        widget.newsList![widget.i].title.toString(),
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontFamily: "AppFont",
+                            fontSize: 25),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        widget.newsList![widget.i].description.toString(),
+                        style: TextStyle(
+                            color: Colors.grey, fontFamily: "AppFont"),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 35,
+                    )
+                  ],
+                ),
               ),
-            ),
+            ],
           ),
-          floating: true,
-          leading: InkWell(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: const Icon(
-              Icons.arrow_back,
-              color: Colors.white,
-              size: 40,
-            ),
-          ),
-          backgroundColor: Colors.transparent,
-        );
+        ),
+      ),
+      floating: true,
+      leading: InkWell(
+        onTap: () {
+          Navigator.pop(context);
+        },
+        child: const Icon(
+          Icons.arrow_back,
+          color: Colors.white,
+          size: 40,
+        ),
+      ),
+      backgroundColor: Colors.transparent,
+    );
   }
 
   Widget pageContent() => SliverToBoxAdapter(

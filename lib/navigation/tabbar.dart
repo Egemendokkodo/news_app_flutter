@@ -38,7 +38,7 @@ class _TabbarState extends State<Tabbar> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 10),
           child: GNav(
-              duration: Duration(milliseconds: 600),
+              duration: Duration(milliseconds: 700),
               onTabChange: (index) {
                 setState(() {
                   this._selectedTab = index;

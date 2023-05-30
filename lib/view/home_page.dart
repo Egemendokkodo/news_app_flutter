@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_flutter/navigation/nav_bar.dart';
 import 'package:news_app_flutter/service/api_service.dart';
 import 'package:news_app_flutter/view/news_detail_page.dart';
 import 'package:news_app_flutter/widgets/widgets.dart';
@@ -43,6 +44,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: NavBar(),
         extendBodyBehindAppBar: true,
         appBar: MyWidgets().MyAppBar(),
         backgroundColor: Colors.white,
@@ -51,10 +53,12 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: [
               newsOfTheDayContainer(context),
-              MyWidgets().homePageTitle(context, "Breaking news", "More",topHeadlinesList),
+              MyWidgets().homePageTitle(
+                  context, "Breaking news", "More", topHeadlinesList),
               ScrollableRowContent(
                   ApiService().fetchTopHeadlines(), topHeadlinesList),
-              MyWidgets().homePageTitle(context, "News from Usa", "More",countryList),
+              MyWidgets()
+                  .homePageTitle(context, "News from Usa", "More", countryList),
               ScrollableRowContent(
                   ApiService().fetchNewsByCountry(), countryList),
             ],
@@ -93,9 +97,14 @@ class _HomePageState extends State<HomePage> {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(20),
                                       child: Image(
-                                        image: NetworkImage(snapshot
-                                            .data!.articles![index].urlToImage
-                                            .toString()),
+                                        image: snapshot.data!.articles![index]
+                                                    .urlToImage !=
+                                                null
+                                            ? NetworkImage(snapshot.data!
+                                                .articles![index].urlToImage
+                                                .toString())
+                                            : NetworkImage(
+                                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxCPerXGwYsY2R0Mx9uih5q4KeI-QV-uArGA&usqp=CAU'),
                                         width: 210,
                                         height: 170,
                                         fit: BoxFit.fill,
@@ -187,7 +196,9 @@ class _HomePageState extends State<HomePage> {
                 bottomRight: Radius.circular(50),
               ),
               child: Image.network(
-                topHeadlinesList![0].urlToImage.toString(),
+                topHeadlinesList![0].urlToImage != null
+                    ? topHeadlinesList![0].urlToImage.toString()
+                    : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxCPerXGwYsY2R0Mx9uih5q4KeI-QV-uArGA&usqp=CAU',
                 fit: BoxFit.cover,
               ),
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_flutter/model/news_model.dart';
+import 'package:news_app_flutter/navigation/nav_bar.dart';
 import 'dart:ui';
 
 import 'package:news_app_flutter/view/more_page.dart';
@@ -7,17 +8,13 @@ import 'package:news_app_flutter/view/more_page.dart';
 class MyWidgets {
   AppBar MyAppBar() {
     return AppBar(
-      leading: const Icon(
-        Icons.menu,
-        color: Colors.white,
-        size: 40,
-      ),
       backgroundColor: Colors.transparent,
       elevation: 0,
     );
   }
 
-  Padding homePageTitle(BuildContext context,String text1, text2, List<Articles>? list) {
+  Padding homePageTitle(
+      BuildContext context, String text1, text2, List<Articles>? list) {
     return Padding(
       padding: const EdgeInsets.all(15),
       child: Row(
@@ -34,8 +31,7 @@ class MyWidgets {
           TextButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) =>
-                                      MorePage(text1,list)));
+                  builder: (context) => MorePage(text1, list)));
             },
             child: Text(
               text2,
@@ -72,9 +68,8 @@ class MyWidgets {
             ],
           )),
         ),
-        Center(
-          child: Padding(
-            padding: EdgeInsets.all(8.0),
+        Expanded(
+          child: Center(
             child: Text(
               text,
               style: TextStyle(
