@@ -47,13 +47,16 @@ class _HomePageState extends State<HomePage> {
         appBar: MyWidgets().MyAppBar(),
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
           child: Column(
             children: [
               newsOfTheDayContainer(context),
-              MyWidgets().homePageTitle("Breaking news", "More"),
-              ScrollableRowContent(ApiService().fetchTopHeadlines(),topHeadlinesList),
-              MyWidgets().homePageTitle("News from Usa", "More"),
-              ScrollableRowContent(ApiService().fetchNewsByCountry(),countryList),
+              MyWidgets().homePageTitle(context, "Breaking news", "More",topHeadlinesList),
+              ScrollableRowContent(
+                  ApiService().fetchTopHeadlines(), topHeadlinesList),
+              MyWidgets().homePageTitle(context, "News from Usa", "More",countryList),
+              ScrollableRowContent(
+                  ApiService().fetchNewsByCountry(), countryList),
             ],
           ),
         ));

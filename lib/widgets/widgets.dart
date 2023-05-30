@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_flutter/model/news_model.dart';
 import 'dart:ui';
+
+import 'package:news_app_flutter/view/more_page.dart';
 
 class MyWidgets {
   AppBar MyAppBar() {
@@ -14,7 +17,7 @@ class MyWidgets {
     );
   }
 
-  Padding homePageTitle(String text1, text2) {
+  Padding homePageTitle(BuildContext context,String text1, text2, List<Articles>? list) {
     return Padding(
       padding: const EdgeInsets.all(15),
       child: Row(
@@ -30,7 +33,9 @@ class MyWidgets {
           const Spacer(),
           TextButton(
             onPressed: () {
-              print("textButton");
+              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) =>
+                                      MorePage(text1,list)));
             },
             child: Text(
               text2,

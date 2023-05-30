@@ -63,16 +63,20 @@ class _TabbarState extends State<Tabbar> {
                   iconColor: Colors.black,
                   icon: Icons.home,
                   text: "Home",
+                  textStyle: TextStyle(fontFamily: "AppFontBold"),
                 ),
                 GButton(
                   iconColor: Colors.black,
                   icon: Icons.search,
                   text: "Search",
+                  textStyle: TextStyle(fontFamily: "AppFontBold"),
                 ),
                 GButton(
                   iconColor: Colors.black,
                   icon: Icons.person,
                   text: "Profile",
+                  textStyle:
+                      TextStyle(fontFamily: "AppFontBold", letterSpacing: 0.1),
                 )
               ]),
         ),
