@@ -47,46 +47,49 @@ class _DetailPageState extends State<DetailPage> {
               ),
               Padding(
                 padding: EdgeInsets.all(20),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Align(
-                      alignment: Alignment.bottomLeft,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: SizedBox(
-                          width: 150,
-                          height: 40,
-                          child: MyWidgets().glassMorphismText(widget
-                              .newsList![widget.i].source!.name
-                              .toString()),
+                child: SingleChildScrollView(
+                  physics: BouncingScrollPhysics(),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Align(
+                        alignment: Alignment.bottomLeft,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: SizedBox(
+                            width: 150,
+                            height: 40,
+                            child: MyWidgets().glassMorphismText(widget
+                                .newsList![widget.i].source!.name
+                                .toString()),
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Center(
-                      child: Text(
-                        widget.newsList![widget.i].title.toString(),
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontFamily: "AppFont",
-                            fontSize: 25),
+                      const SizedBox(
+                        height: 20,
                       ),
-                    ),
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        widget.newsList![widget.i].description.toString(),
-                        style: TextStyle(
-                            color: Colors.grey, fontFamily: "AppFont"),
+                      Center(
+                        child: Text(
+                          widget.newsList![widget.i].title.toString(),
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AppFont",
+                              fontSize: 25),
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 35,
-                    )
-                  ],
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          widget.newsList![widget.i].description.toString(),
+                          style: TextStyle(
+                              color: Colors.grey, fontFamily: "AppFont"),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 35,
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],

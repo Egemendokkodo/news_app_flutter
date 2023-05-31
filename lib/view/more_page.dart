@@ -4,8 +4,9 @@ import 'package:news_app_flutter/view/news_detail_page.dart';
 
 class MorePage extends StatefulWidget {
   final String text1;
+  final String text2;
   final List<Articles>? list;
-  const MorePage(this.text1, this.list, {super.key});
+  const MorePage(this.text1, this.list, this.text2, {super.key});
 
   @override
   State<MorePage> createState() => _MorePageState();
@@ -26,7 +27,7 @@ class _MorePageState extends State<MorePage> {
                 color: Colors.black,
               )),
           title: Text(
-            "More '${widget.text1}'",
+            "${widget.text2} '${widget.text1}'",
             style: TextStyle(
                 color: Colors.black, fontFamily: "AppFontBold", fontSize: 20),
           ),

@@ -6,8 +6,21 @@ import 'dart:ui';
 import 'package:news_app_flutter/view/more_page.dart';
 
 class MyWidgets {
-  AppBar MyAppBar() {
+  AppBar MyAppBar(BuildContext context, Color clr) {
     return AppBar(
+      leading: Builder(
+        builder: (context) {
+          return IconButton(
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              icon: Icon(
+                Icons.menu,
+                color: clr,
+                size: 35,
+              ));
+        },
+      ),
       backgroundColor: Colors.transparent,
       elevation: 0,
     );
@@ -31,7 +44,7 @@ class MyWidgets {
           TextButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => MorePage(text1, list)));
+                  builder: (context) => MorePage(text1, list,text2)));
             },
             child: Text(
               text2,
@@ -43,6 +56,36 @@ class MyWidgets {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Container searchNews() {
+    return Container(
+      margin:const EdgeInsets.only(top: 30),
+      child: TextField(
+        style:const TextStyle(color: Colors.black, fontFamily: "AppFont"),
+        decoration: InputDecoration(
+            filled: true,
+            fillColor:const Color.fromARGB(158, 228, 228, 228),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: const BorderSide(
+                width: 0,
+                style: BorderStyle.none,
+              ),
+            ),
+            suffixIcon:const Icon(
+              Icons.filter_alt,
+              color: Color.fromARGB(255, 135, 135, 135),
+            ),
+            hintText: "Search for news",
+            hintStyle: TextStyle(
+                color: Colors.grey.withOpacity(0.4), fontFamily: "AppFont"),
+            prefixIcon:const Icon(
+              Icons.search,
+              color: Color.fromARGB(255, 135, 135, 135),
+            )),
       ),
     );
   }

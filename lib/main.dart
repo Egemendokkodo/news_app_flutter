@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app_flutter/navigation/tabbar.dart';
+import 'package:news_app_flutter/navigation/bottom_nav_bar.dart';
 
 void main() {
   runApp(const MyApp());

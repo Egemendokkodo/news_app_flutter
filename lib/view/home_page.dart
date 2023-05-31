@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         drawer: NavBar(),
         extendBodyBehindAppBar: true,
-        appBar: MyWidgets().MyAppBar(),
+        appBar: MyWidgets().MyAppBar(context,Colors.white),
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
