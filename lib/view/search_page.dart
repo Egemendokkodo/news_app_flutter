@@ -55,7 +55,7 @@ class _SearchPageState extends State<SearchPage> with TickerProviderStateMixin {
                       color: Colors.grey, fontFamily: "AppFont", fontSize: 20),
                 ),
               ),
-              MyWidgets().searchNews(),
+              MyWidgets().searchNews(context),
               Column(
                 children: [],
               ),
@@ -179,7 +179,9 @@ class _SearchPageState extends State<SearchPage> with TickerProviderStateMixin {
                                   shape:
                                       Border.all(color: Colors.black, width: 1),
                                   leading: Image.network(
-                                    items[index].urlToImage.toString(),
+                                    items[index].urlToImage != null
+                                        ? items[index].urlToImage.toString()
+                                        : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxCPerXGwYsY2R0Mx9uih5q4KeI-QV-uArGA&usqp=CAU',
                                     fit: BoxFit.cover,
                                     width: 100,
                                     height: 100,

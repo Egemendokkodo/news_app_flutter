@@ -37,7 +37,9 @@ class _DetailPageState extends State<DetailPage> {
               ClipRRect(
                 child: FlexibleSpaceBar(
                   background: Image.network(
-                    widget.newsList![widget.i].urlToImage.toString(),
+                    widget.newsList![widget.i].urlToImage != null
+                        ? widget.newsList![widget.i].urlToImage.toString()
+                        : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxCPerXGwYsY2R0Mx9uih5q4KeI-QV-uArGA&usqp=CAU',
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -47,49 +49,46 @@ class _DetailPageState extends State<DetailPage> {
               ),
               Padding(
                 padding: EdgeInsets.all(20),
-                child: SingleChildScrollView(
-                  physics: BouncingScrollPhysics(),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Align(
-                        alignment: Alignment.bottomLeft,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: SizedBox(
-                            width: 150,
-                            height: 40,
-                            child: MyWidgets().glassMorphismText(widget
-                                .newsList![widget.i].source!.name
-                                .toString()),
-                          ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: SizedBox(
+                          width: 150,
+                          height: 40,
+                          child: MyWidgets().glassMorphismText(widget
+                              .newsList![widget.i].source!.name
+                              .toString()),
                         ),
                       ),
-                      const SizedBox(
-                        height: 20,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Center(
+                      child: Text(
+                        widget.newsList![widget.i].title.toString(),
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontFamily: "AppFont",
+                            fontSize: 25),
                       ),
-                      Center(
-                        child: Text(
-                          widget.newsList![widget.i].title.toString(),
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontFamily: "AppFont",
-                              fontSize: 25),
-                        ),
+                    ),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        widget.newsList![widget.i].description.toString(),
+                        style: TextStyle(
+                            color: Colors.grey, fontFamily: "AppFont"),
                       ),
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          widget.newsList![widget.i].description.toString(),
-                          style: TextStyle(
-                              color: Colors.grey, fontFamily: "AppFont"),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 35,
-                      )
-                    ],
-                  ),
+                    ),
+                    SizedBox(
+                      height: 35,
+                    )
+                  ],
                 ),
               ),
             ],

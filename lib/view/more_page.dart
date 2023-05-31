@@ -46,7 +46,9 @@ class _MorePageState extends State<MorePage> {
                   child: ListTile(
                     shape: Border.all(color: Colors.black, width: 1),
                     leading: Image.network(
-                      widget.list![index].urlToImage.toString(),
+                      widget.list![index].urlToImage != null
+                          ? widget.list![index].urlToImage.toString()
+                          : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxCPerXGwYsY2R0Mx9uih5q4KeI-QV-uArGA&usqp=CAU',
                       fit: BoxFit.cover,
                       width: 100,
                       height: 100,
