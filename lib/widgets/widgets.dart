@@ -65,6 +65,7 @@ class MyWidgets {
     return Container(
       margin: const EdgeInsets.only(top: 30),
       child: TextField(
+        cursorColor: Colors.black,
         onSubmitted: (value) {
           ApiService().fetchNewsByUserInput(value).then((data) {
             Navigator.of(context).push(MaterialPageRoute(

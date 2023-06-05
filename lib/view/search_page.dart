@@ -1,4 +1,3 @@
-import 'package:news_app_flutter/model/news_model.dart';
 import 'package:news_app_flutter/service/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app_flutter/navigation/nav_bar.dart';
@@ -56,11 +55,8 @@ class _SearchPageState extends State<SearchPage> with TickerProviderStateMixin {
                 ),
               ),
               MyWidgets().searchNews(context),
-              Column(
-                children: [],
-              ),
               Container(
-                margin: EdgeInsets.only(top: 30),
+                margin: EdgeInsets.only(top: 20),
                 child: TabBar(
                   indicatorColor: Colors.black,
                   controller: _tabController,
